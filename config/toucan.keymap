@@ -96,10 +96,17 @@
             >;
         };
 
-        // Spare layer for ZMK Studio. Index 3 is kept reserved so the mouse
-        // layer lands on index 4, which the trackpad processors expect.
-        extra_3 {
-            status = "reserved";
+        // Placeholder so the mouse layer is always index 4, which the trackpad
+        // touch processor activates (&mo 4 in toucan.dtsi). It must be a real
+        // layer: "reserved" layers only count toward indices when Studio is on.
+        spare_layer {
+            display-name = "EXT";
+            bindings = <
+&trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
+&trans &trans &trans &trans &trans &trans    &trans &trans &trans &trans &trans &trans
+                     &trans &trans &trans    &trans &trans &trans
+            >;
         };
 
         // Toucan-only: auto-activated (&mo 4 in toucan.dtsi) while the trackpad
